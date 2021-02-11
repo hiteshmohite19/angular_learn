@@ -1,0 +1,12 @@
+<input type="text" [(ngModel)]='name' id="">
+<h4>Input name is : {{name}}</h4>
+<button (click)='onClick($event)'>Greet</button>
+<p>conversion works!</p>
+
+{{errorMsg}}
+
+<div *ngFor='let emp of employees'>
+    <div class="d-flex">
+        <h4>{{emp.id}}</h4>&nbsp;<h4>{{emp.name}}</h4>&nbsp;<h4>{{emp.age}}</h4>
+    </div>
+</div>

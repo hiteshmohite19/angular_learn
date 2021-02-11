@@ -1,0 +1,10 @@
+<div *ngFor="let d of departments" class="">
+  <ul>
+    <li (click)="onSelect(d)" [class.text-primary]='isSelected(d)'>
+      <div class="d-flex">
+        <h4>{{ d.id }}</h4>
+        <h4>{{ d.name }}</h4>
+      </div>
+    </li>
+  </ul>
+</div>
