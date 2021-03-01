@@ -5,12 +5,21 @@ import { DepartmentContactComponent } from './department-contact/department-cont
 import { DepartmentDetailsComponent } from './department-details/department-details.component';
 import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { FormTypeComponent } from './form-type/form-type.component';
+import { FormsComponent } from './forms/forms.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'employees',pathMatch:'full'},
+  {path:'',redirectTo:'',pathMatch:'full'},
   {path:'employees',component:ConversionComponent},
-  {path:'departments',component:DepartmentsComponent},
+  {path:'departments',component:DepartmentsComponent},  
+  {path:'forms',component:FormTypeComponent,
+    children:[
+      {path:'tdf-form',component:FormsComponent},
+      {path:'reactive-form',component:ReactiveFormComponent},
+    ]
+  },
   {path:'departments/:id',component:DepartmentDetailsComponent,
     children:[
       {path:'department-overview',component:DepartmentOverviewComponent},
@@ -27,4 +36,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponent=[ConversionComponent,DepartmentsComponent,PageNotFoundComponent,DepartmentDetailsComponent,DepartmentContactComponent,DepartmentOverviewComponent]
+export const routingComponent=[ConversionComponent,DepartmentsComponent,FormsComponent,PageNotFoundComponent,DepartmentDetailsComponent,DepartmentContactComponent,DepartmentOverviewComponent,FormTypeComponent,ReactiveFormComponent]

@@ -1,0 +1,44 @@
+
+<div class="mx-2">
+  <h3>Template Driven Form</h3>
+  <form #user="ngForm" action="" class="form-floating">
+    {{ user.value | json }}
+
+    {{userInfo|json}}
+    <br /><br />
+    <div class="form-floating">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" class="form-control" [class.is-invalid]='name.invalid && name.touched' size="100" #name='ngModel' [(ngModel)]='userInfo.name' required placeholder="Name" autocomplete="off"/>
+      <small class="text-danger" [class.d-none]='name.valid || name.untouched'>Name required *</small>
+    </div>
+    <br>
+    <div>
+      <label for="">Email</label>&nbsp;
+      <input type="email" name="email" [(ngModel)]='userInfo.email' />
+    </div>
+
+    <div>
+      <label for="">Mobile No.</label>&nbsp;
+      <input type="text" pattern='^\d{10}$' name="mobileno" required [(ngModel)]='userInfo.mobileno' #mobileno='ngModel'/>
+      <div *ngIf='mobileno.errors && (mobileno.invalid || mobileno.touched)'>
+        <small class="text-danger" *ngIf='mobileno.errors.required'>Mobile number is required</small>
+        <small class="text-danger" *ngIf='mobileno.errors.pattern'>Mobile number is invalid</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="">Gender</label>&nbsp;
+      <input type="radio" name="gender" [(ngModel)]='userInfo.gender' value="Male"/><label for="">Male</label> &nbsp;&nbsp;
+      <input type="radio" name="gender" [(ngModel)]='userInfo.gender' value="Female"/><label for="">Female</label>
+    </div>
+
+    <div>
+      <select name="course" id="" [(ngModel)]='userInfo.course'>
+          <option value="">Interested in</option>
+          <option *ngFor='let v of courses' value="{{v}}">{{v}}</option>
+      </select>
+    </div>
+    <br>
+    <input type="submit" name="submit" value="Submit">
+  </form>
+</div>

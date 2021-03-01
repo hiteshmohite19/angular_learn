@@ -1,9 +1,15 @@
-<h1 class="display-1 ">Hitesh Mohite</h1>
-<h3>This is from child component : {{data}}</h3>
-<h2>{{title}}</h2>
-<div>
-    <a routerLink='/employees' routerLinkActive='active'>Employees</a>&nbsp;
-    <a routerLink='/departments' routerLinkActive='active'>Department</a>
-</div>
+<h1 class="display-1 ">{{title}}</h1>
+<h2>Hitesh Mohite</h2>
+<div class="d-flex ml-2">
+    <div>
+        <a routerLink='/employees' routerLinkActive='active'><button class="btn btn-info">Employees</button></a>
+    </div>&nbsp;
+    <div>
+        <a routerLink='/departments' routerLinkActive='active'><button class="btn btn-info">Department</button></a>
+    </div>&nbsp;
+    <div>
+        <a routerLink='/forms' routerLinkActive='active'><button class="btn btn-info">Forms</button></a>
+    </div>
+</div><br>
 <!-- <app-conversion (data)='data=$event' [name]='name'></app-conversion> -->
 <router-outlet></router-outlet>
